@@ -3,7 +3,7 @@
 	"id": "zac",
 	"version": "${version}",
 	"name": "Zombie Apocalypse Core",
-	"description": "Necessity for zombie apocalypse modpacks.",
+	"description": "A necessity for zombie apocalypse modpacks.",
 	"authors": [],
 	"contact": {
 		"sources": "https://github.com/sixtynineninetynine/zacmod"
@@ -21,8 +21,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.3",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {

@@ -39,7 +39,7 @@ public class CustomZombieDrops {
                     ArrayList<String> drops = new ArrayList<>(Config.additionalZombieDrops);
                     for (String drop : drops) {
                         String[] splitDrop = drop.trim().split("=");
-                        Item item = BuiltInRegistries.ITEM.get(new ResourceLocation(splitDrop[0].toLowerCase()));
+                        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.parse(splitDrop[0].toLowerCase()));
                         double chance = Double.parseDouble(splitDrop[1]);
                         if (Math.random() < chance) {
                             spawnDrops(world, x, y, z, new ItemStack(item));

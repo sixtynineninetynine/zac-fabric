@@ -19,12 +19,13 @@ public class EntityHandler {
 
     public static void onEntitySpawn(Entity entity, ServerLevel level) {
         String entityRegistryName = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString();
-
+        // entity blocklist
         if (Config.entityBlocklistEntities.contains(entityRegistryName)) {
             if (entity instanceof Mob && !entity.level().isClientSide) {
                 entity.discard();
             }
         } else {
+            // entity multiplier
             if (Config.entityMultiplierEntities.contains(entityRegistryName)) {
                 if (entity instanceof Mob && !entity.getTags().contains("multiplied")) {
                     entity.addTag("multiplied");
@@ -32,7 +33,7 @@ public class EntityHandler {
                     if (multiplier > 1) {
                         for (int i = 0; i < multiplier - 1; i++) {
                             EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE
-                                    .get(new ResourceLocation(entityRegistryName));
+                                    .get(ResourceLocation.parse(entityRegistryName));
                             if (entityType != null) {
                                 Entity newEntity = entityType.create(level);
                                 if (newEntity != null) {
